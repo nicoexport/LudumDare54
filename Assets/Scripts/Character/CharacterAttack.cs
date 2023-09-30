@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.WindowsRuntime;
 using Slothsoft.UnityExtensions;
 using UnityEngine;
 
@@ -13,6 +14,24 @@ namespace LudumDare {
         public bool intendsAttack {
             get => attachedComponent.GetBool(nameof(intendsAttack));
             set => attachedComponent.SetBool(nameof(intendsAttack), value);
+        }
+
+        Vector2 attackDir {
+            get => new(attackDirX, attackDirY);
+            set {
+                attackDirX = value.x;
+                attackDirY = value.y;
+            }
+        }
+
+        public float attackDirX {
+            get => attachedComponent.GetFloat(nameof(attackDirX));
+            set => attachedComponent.SetFloat(nameof(attackDirX), value);
+        }
+
+        public float attackDirY {
+            get => attachedComponent.GetFloat(nameof(attackDirY));
+            set => attachedComponent.SetFloat(nameof(attackDirY), value);
         }
 
         protected void OnEnable() {
@@ -32,6 +51,7 @@ namespace LudumDare {
         }
 
         public void EnableAttack(Vector2 direction) {
+            attackDir = direction;  
             attackColliderTransform.gameObject.SetActive(true);
             attackColliderTransform.position = transform.position + (direction.SwizzleXY() * attackColliderDistance);
         }
