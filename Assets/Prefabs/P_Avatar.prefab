@@ -96,8 +96,8 @@ GameObject:
   - component: {fileID: 1113697969010235921}
   - component: {fileID: 190637395175494908}
   - component: {fileID: 3015849277097462230}
-  - component: {fileID: 8156869443164917732}
-  - component: {fileID: 6671831996194867173}
+  - component: {fileID: 1647573395083148382}
+  - component: {fileID: 4568668033138714898}
   m_Layer: 0
   m_Name: P_Avatar
   m_TagString: Untagged
@@ -133,7 +133,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 00e2a1828f9986445a0e599316f35547, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -198,7 +198,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8156869443164917732
+--- !u!114 &1647573395083148382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,23 +207,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 8129300416532852628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3bd0e7e408737141b16088b575e91d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveVelocity: 4
-  characterController: {fileID: 3015849277097462230}
-  m_velocity: {x: 0, y: 0}
-  forward: {x: 0, y: 0}
---- !u!114 &6671831996194867173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8129300416532852628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb0b31c193ea94048b9749fcff32b3aa, type: 3}
+  m_Script: {fileID: 11500000, guid: d0febd863951b88449ae7c6ba40d437e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attachedComponent: {fileID: 1113697969010235921}
+--- !u!114 &4568668033138714898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8129300416532852628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da2162f661b5ff4abb756dae093baff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachedComponent: {fileID: 1113697969010235921}
+  characterController: {fileID: 3015849277097462230}
+  moveVelocity: 4
+  m_velocity: {x: 0, y: 0}
+  forward: {x: 0, y: 0}
