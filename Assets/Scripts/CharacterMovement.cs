@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace LudumDare {
-    public class CharacterMovement : MonoBehaviour {
-        [SerializeField] float moveVelocity = 1f;
+    public class CharacterMovement : ComponentFeature<Animator> {
         [SerializeField] CharacterController characterController;
+        [SerializeField] float moveVelocity = 1f;
 
         public Vector2 velocity {
             get {
@@ -32,7 +32,8 @@ namespace LudumDare {
             velocity = value.Get<Vector2>() * moveVelocity;
         }
 
-        protected void OnValidate() {
+        protected override void OnValidate() {
+            base.OnValidate();
             if (!characterController) {
                 TryGetComponent(out characterController);
             }
