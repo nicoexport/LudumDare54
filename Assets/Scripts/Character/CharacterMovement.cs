@@ -14,6 +14,7 @@ namespace LudumDare {
             }
             private set {
                 m_velocity = value;
+                attachedComponent.SetFloat(nameof(velocity), value.magnitude);
                 if (value.magnitude > 0.1f) {
                     forward = GetCardinal(value);
                 }
