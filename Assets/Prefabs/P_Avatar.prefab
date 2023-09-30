@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3444076133129418521
 Transform:
   m_ObjectHideFlags: 0
@@ -325,7 +325,6 @@ MonoBehaviour:
   characterController: {fileID: 3015849277097462230}
   moveVelocity: 4
   m_velocity: {x: 0, y: 0}
-  <forward>k__BackingField: {x: 0, y: 0}
 --- !u!212 &5783032149454773291
 SpriteRenderer:
   m_ObjectHideFlags: 0
