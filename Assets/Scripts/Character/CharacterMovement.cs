@@ -22,7 +22,7 @@ namespace LudumDare {
         [field: SerializeField, ReadOnly]
         Vector2 m_velocity;
         [field: SerializeField, ReadOnly]
-        Vector2 forward;
+        public Vector2 forward { get; private set; }
 
         public  void Move() => characterController.Move(velocity.SwizzleXY() * Time.deltaTime);
 
