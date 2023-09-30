@@ -24,9 +24,7 @@ namespace LudumDare {
         [field: SerializeField, ReadOnly]
         Vector2 forward;
 
-        protected void FixedUpdate() {
-            characterController.Move(velocity.SwizzleXY() * Time.deltaTime);
-        }
+        public  void Move() => characterController.Move(velocity.SwizzleXY() * Time.deltaTime);
 
         protected void OnMove(InputValue value) {
             velocity = value.Get<Vector2>() * moveVelocity;
