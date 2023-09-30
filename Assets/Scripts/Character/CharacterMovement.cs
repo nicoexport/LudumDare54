@@ -21,8 +21,22 @@ namespace LudumDare {
         }
         [field: SerializeField, ReadOnly]
         Vector2 m_velocity;
-        [field: SerializeField, ReadOnly]
-        public Vector2 forward { get; private set; }
+        [property: SerializeField]
+        public Vector2 forward {
+            get => new Vector2(forwardX, forwardY);
+            private set {
+                forwardX = value.x;
+                forwardY = value.y;
+            }
+        }
+        float forwardX {
+            get => attachedComponent.GetFloat(nameof(forwardX));
+            set => attachedComponent.SetFloat(nameof(forwardX), value);
+        }
+        float forwardY {
+            get => attachedComponent.GetFloat(nameof(forwardY));
+            set => attachedComponent.SetFloat(nameof(forwardY), value);
+        }
 
         public  void Move() => characterController.Move(velocity.SwizzleXY() * Time.deltaTime);
 
