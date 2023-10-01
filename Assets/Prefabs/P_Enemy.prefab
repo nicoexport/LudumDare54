@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4568668033138714898, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: moveVelocity
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5783032149454773291, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: m_Color.b
       value: 0.23113209
@@ -68,6 +72,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7320565654303459144, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320565654303459144, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: whatIsEnemy.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8129300416532852628, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: m_Name
       value: P_Enemy
@@ -102,4 +114,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a8befcb5c0e344b0f081dd1c33489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 0.5
+  attackRange: 1.4

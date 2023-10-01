@@ -1,7 +1,5 @@
-﻿using System;
-using LudumDare.Assets.Scripts;
+﻿using LudumDare.Assets.Scripts;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace LudumDare {
     class AIInput : MonoBehaviour {
@@ -14,7 +12,7 @@ namespace LudumDare {
         }
 
         protected void FixedUpdate() {
-            if(Vector2.Distance(transform.position, playerObject.transform.position) > attackRange) {
+            if (Vector2.Distance(transform.position, playerObject.transform.position) > attackRange) {
                 Chase();
             } else {
                 Attack();
@@ -22,6 +20,8 @@ namespace LudumDare {
         }
 
         void Attack() {
+            Debug.Log("Attack");
+            gameObject.SendMessage("OnAttack");
         }
 
         void Chase() {
