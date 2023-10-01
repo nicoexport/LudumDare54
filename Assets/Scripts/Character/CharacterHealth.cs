@@ -1,5 +1,6 @@
 using MyBox;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace LudumDare {
     public class CharacterHealth : MonoBehaviour {
@@ -8,6 +9,8 @@ namespace LudumDare {
         [SerializeField, ReadOnly]
         int currentHealth;
 
+        public UnityEvent onDeath;
+
         protected void Start() {
             currentHealth = maxHealth;
         }
@@ -15,7 +18,7 @@ namespace LudumDare {
         public void TakeDamage(int amount) {
             currentHealth -= amount;
             if (currentHealth <= 0) {
-                Destroy(gameObject);
+                onDeath?.Invoke();
             }
         }
     }
