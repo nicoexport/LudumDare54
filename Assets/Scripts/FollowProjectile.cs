@@ -25,7 +25,7 @@ namespace LudumDare.Assets.Scripts {
             lifetimer.SetForFrames(lifeTimeInFrames);
             moveDir = direction.normalized;
             var candidates = Physics.OverlapSphere(transform.position, detectionRange, targetLayers);
-            if (candidates != null) {
+            if (candidates.Length > 0) {
                 target = candidates[0].transform;
             }
             isInitialized = true;
