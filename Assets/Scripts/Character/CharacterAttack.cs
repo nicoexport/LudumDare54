@@ -1,4 +1,3 @@
-using System.Runtime.InteropServices.WindowsRuntime;
 using Slothsoft.UnityExtensions;
 using UnityEngine;
 
@@ -51,7 +50,7 @@ namespace LudumDare {
         }
 
         public void EnableAttack(Vector2 direction) {
-            attackDir = direction;  
+            attackDir = direction;
             attackColliderTransform.gameObject.SetActive(true);
             attackColliderTransform.position = transform.position + (direction.SwizzleXY() * attackColliderDistance);
         }

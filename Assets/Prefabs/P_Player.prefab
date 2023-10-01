@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &509235596888542951
+--- !u!1001 &5737860714192937707
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,22 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3622326850131295294, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5783032149454773291, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
-      propertyPath: m_Color.b
-      value: 0.23113209
-      objectReference: {fileID: 0}
-    - target: {fileID: 5783032149454773291, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
-      propertyPath: m_Color.g
-      value: 0.23113209
-      objectReference: {fileID: 0}
-    - target: {fileID: 5783032149454773291, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6598841517875480330, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -64,21 +48,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7125065082080621556, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 8129300416532852628, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: m_Name
-      value: P_Enemy
+      value: P_Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8129300416532852628, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 190637395175494908, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8129300416532852628, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 7407005718242138162}
+    - targetCorrespondingSourceObject: {fileID: 8129300416532852628, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4993767119707559068}
   m_SourcePrefab: {fileID: 100100000, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+--- !u!1 &4571692670908599679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8129300416532852628, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+  m_PrefabInstance: {fileID: 5737860714192937707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7407005718242138162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571692670908599679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 570ec336fda7f874d96cc2787d817051, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Game
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &-4993767119707559068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571692670908599679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff0e903abf1ac104e876083c47288acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
