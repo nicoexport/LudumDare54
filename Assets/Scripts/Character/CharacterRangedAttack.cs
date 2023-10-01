@@ -1,10 +1,12 @@
-﻿using Slothsoft.UnityExtensions;
+﻿using LudumDare.Assets.Scripts;
+using Slothsoft.UnityExtensions;
 using UnityEngine;
 
 namespace LudumDare {
     public class CharacterRangedAttack : ComponentFeature<Animator> {
         [SerializeField]
-        GameObject projectilePrefab;
+        Projectile projectilePrefab;
+        [SerializeField] float spawnDistance = 0.5f;
 
         BoolBuffer intendBuffer = new();
 
@@ -33,6 +35,8 @@ namespace LudumDare {
 
         public void Attack(Vector2 direction) {
             attackDir = direction;
+            var projectile = Instantiate(projectilePrefab, transform.position + (direction * spawnDistance).SwizzleXY(), Quaternion.identity);
+            projectile.Shoot(direction);
         }
 
         protected void Update() {
