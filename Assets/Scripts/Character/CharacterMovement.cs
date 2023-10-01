@@ -25,7 +25,7 @@ namespace LudumDare {
         Vector2 m_velocity;
         [property: SerializeField]
         public Vector2 forward {
-            get => new Vector2(forwardX, forwardY);
+            get => new(forwardX, forwardY);
             private set {
                 forwardX = value.x;
                 forwardY = value.y;
@@ -40,7 +40,7 @@ namespace LudumDare {
             set => attachedComponent.SetFloat(nameof(forwardY), value);
         }
 
-        public  void Move() => characterController.Move(velocity.SwizzleXY() * Time.deltaTime);
+        public void Move() => characterController.Move(velocity.SwizzleXY() * Time.deltaTime);
 
         protected void OnMove(InputValue value) {
             velocity = value.Get<Vector2>() * moveVelocity;

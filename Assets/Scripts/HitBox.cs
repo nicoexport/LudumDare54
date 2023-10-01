@@ -10,7 +10,7 @@ namespace LudumDare.Assets.Scripts {
                 return;
             }
 
-            if(!collider.TryGetComponent(out CharacterHealth health)) {
+            if (!collider.TryGetComponent(out CharacterHealth health)) {
                 return;
             }
 

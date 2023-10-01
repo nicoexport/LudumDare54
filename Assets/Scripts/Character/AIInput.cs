@@ -20,7 +20,6 @@ namespace LudumDare {
         }
 
         void Attack() {
-            Debug.Log("Attack");
             gameObject.SendMessage("OnAttack");
         }
 
