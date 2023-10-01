@@ -12,6 +12,10 @@ namespace LudumDare {
         }
 
         protected void FixedUpdate() {
+            if (!playerObject || !playerObject.activeInHierarchy) {
+                return;
+            }
+
             if (Vector2.Distance(transform.position, playerObject.transform.position) > attackRange) {
                 Chase();
             } else {
@@ -20,6 +24,8 @@ namespace LudumDare {
         }
 
         void Attack() {
+            Vector2 dir = playerObject.transform.position - transform.position;
+            gameObject.SendMessage("OnMove", dir.normalized);
             gameObject.SendMessage("OnAttack");
         }
 
