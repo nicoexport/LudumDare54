@@ -5,7 +5,13 @@ namespace LudumDare {
     class AIInput : MonoBehaviour {
         [SerializeField]
         float attackRange = 0.5f;
+        [SerializeField]
+        bool useMelee = true;
+        [SerializeField]
+        bool useRange;
         GameObject playerObject;
+
+
 
         protected void Start() {
             playerObject = Player.instance.gameObject;
@@ -26,7 +32,12 @@ namespace LudumDare {
         void Attack() {
             Vector2 dir = playerObject.transform.position - transform.position;
             gameObject.SendMessage("OnMove", dir.normalized);
-            gameObject.SendMessage("OnAttack");
+            if (useMelee) {
+                gameObject.SendMessage("OnAttack");
+            }
+            if (useRange) {
+                gameObject.SendMessage("OnRangedAttack");
+            }
         }
 
         void Chase() {

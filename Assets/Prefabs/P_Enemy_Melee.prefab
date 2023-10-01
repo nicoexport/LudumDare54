@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8129300416532852628, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: m_Name
-      value: P_Enemy
+      value: P_Enemy_Melee
       objectReference: {fileID: 0}
     - target: {fileID: 8129300416532852628, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: m_Layer
@@ -115,3 +115,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 1.4
+  useMelee: 1
+  useRange: 0
