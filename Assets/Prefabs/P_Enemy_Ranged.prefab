@@ -142,5 +142,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedComponent: {fileID: 605045259649111286}
-  projectilePrefab: {fileID: 1232453642606153877, guid: 12b43e8fc2070134481d23aaf3697c37, type: 3}
+  projectilePrefab: {fileID: 6067391478584654579, guid: 12b43e8fc2070134481d23aaf3697c37, type: 3}
   spawnDistance: 0.5

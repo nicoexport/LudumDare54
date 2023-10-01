@@ -6,11 +6,14 @@ namespace LudumDare.Assets.Scripts {
         [SerializeField]
         float moveSpeed;
         [SerializeField]
+        float driftSpeed = 4;
+        [SerializeField]
         int lifeTimeInFrames;
         [SerializeField]
         LayerMask targetLayers;
         [SerializeField]
         float detectionRange = 10f;
+
 
 
         BoolBuffer lifetimer = new();
@@ -39,7 +42,8 @@ namespace LudumDare.Assets.Scripts {
             }
 
             if (target) {
-                moveDir = (target.position - transform.position).normalized; 
+                var targetDir = (target.position - transform.position).normalized;
+                moveDir = Vector2.MoveTowards(moveDir, targetDir, driftSpeed);
             }
 
             transform.position += (moveSpeed * Time.deltaTime * moveDir).SwizzleXY();
