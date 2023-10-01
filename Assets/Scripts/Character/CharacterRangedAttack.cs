@@ -6,9 +6,13 @@ namespace LudumDare {
     public class CharacterRangedAttack : ComponentFeature<Animator> {
         [SerializeField]
         BaseProjectile projectilePrefab;
-        [SerializeField] float spawnDistance = 0.5f;
+        [SerializeField]
+        float spawnDistance = 0.5f;
+        [SerializeField]
+        int cooldownInFrames = 0;
 
         BoolBuffer intendBuffer = new();
+        BoolBuffer coolDownBuffer = new();
 
         public bool intendsRangedAttack {
             get => attachedComponent.GetBool(nameof(intendsRangedAttack));
@@ -37,6 +41,9 @@ namespace LudumDare {
             attackDir = direction;
             var projectile = Instantiate(projectilePrefab, transform.position + (direction * spawnDistance).SwizzleXY(), Quaternion.identity);
             projectile.Shoot(direction);
+            if(cooldownInFrames > 0) {
+                coolDownBuffer.SetForFrames(cooldownInFrames);
+            }
         }
 
         protected void Update() {
@@ -45,9 +52,13 @@ namespace LudumDare {
 
         protected void FixedUpdate() {
             intendBuffer.Tick();
+            coolDownBuffer.Tick();
         }
 
         void OnRangedAttack() {
+            if(coolDownBuffer.value) {
+                return; 
+            }
             intendBuffer.SetForFrames(3);
         }
     }

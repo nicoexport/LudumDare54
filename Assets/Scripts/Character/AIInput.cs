@@ -11,8 +11,6 @@ namespace LudumDare {
         bool useRange;
         GameObject playerObject;
 
-
-
         protected void Start() {
             playerObject = Player.instance.gameObject;
         }
@@ -31,7 +29,7 @@ namespace LudumDare {
 
         void Attack() {
             Vector2 dir = playerObject.transform.position - transform.position;
-            gameObject.SendMessage("OnMove", dir.normalized);
+            gameObject.SendMessage("OnMove", Vector2.zero);
             if (useMelee) {
                 gameObject.SendMessage("OnAttack");
             }
