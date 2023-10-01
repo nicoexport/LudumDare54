@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   driftSpeed: 1
-  lifeTimeInFrames: 150
+  lifeTimeInFrames: 50
   targetLayers:
     serializedVersion: 2
     m_Bits: 8

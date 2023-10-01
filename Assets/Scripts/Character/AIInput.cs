@@ -29,7 +29,7 @@ namespace LudumDare {
 
         void Attack() {
             Vector2 dir = playerObject.transform.position - transform.position;
-            gameObject.SendMessage("OnMove", Vector2.zero);
+            gameObject.SendMessage("OnMove", dir.normalized);
             if (useMelee) {
                 gameObject.SendMessage("OnAttack");
             }
