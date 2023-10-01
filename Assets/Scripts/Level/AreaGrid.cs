@@ -42,7 +42,7 @@ namespace LudumDare {
         }
 
         float CalcOffset() {
-            return areaPrefab.GetHeight() / 2;
+            return (float)areaPrefab.GetHeight() / 2;
         }
     }
 }
