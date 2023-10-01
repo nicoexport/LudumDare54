@@ -121,7 +121,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Wizard
     originalName: 
-    pivot: {x: 0.4545455, y: 0.36842108}
+    pivot: {x: 0.4545455, y: 0.42105258}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -141,7 +141,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Wizard_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0.36842108}
+    pivot: {x: 0.5, y: 0.42105258}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -161,7 +161,7 @@ ScriptedImporter:
     uvTransform: {x: 76, y: 4}
   - name: Wizard_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: 0.36842108}
+    pivot: {x: 0.5, y: 0.42105258}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -181,7 +181,7 @@ ScriptedImporter:
     uvTransform: {x: 96, y: 4}
   - name: Wizard_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: 0.36842108}
+    pivot: {x: 0.5, y: 0.42105258}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -201,7 +201,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 31}
   - name: Wizard_Frame_4
     originalName: 
-    pivot: {x: 0.5, y: 0.36842108}
+    pivot: {x: 0.5, y: 0.42105258}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -221,7 +221,7 @@ ScriptedImporter:
     uvTransform: {x: 24, y: 31}
   - name: Wizard_Frame_5
     originalName: 
-    pivot: {x: 0.5, y: 0.38888893}
+    pivot: {x: 0.5, y: 0.44444442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -241,7 +241,7 @@ ScriptedImporter:
     uvTransform: {x: 44, y: 58}
   - name: Wizard_Frame_6
     originalName: 
-    pivot: {x: 0.5, y: 0.38888893}
+    pivot: {x: 0.5, y: 0.44444442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -261,7 +261,7 @@ ScriptedImporter:
     uvTransform: {x: 64, y: 58}
   - name: Wizard_Frame_7
     originalName: 
-    pivot: {x: 0.5, y: 0.38888893}
+    pivot: {x: 0.5, y: 0.44444442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -281,7 +281,7 @@ ScriptedImporter:
     uvTransform: {x: 84, y: 58}
   - name: Wizard_Frame_8
     originalName: 
-    pivot: {x: 0.5, y: 0.38888893}
+    pivot: {x: 0.5, y: 0.44444442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -301,7 +301,7 @@ ScriptedImporter:
     uvTransform: {x: 104, y: 58}
   - name: Wizard_Frame_9
     originalName: 
-    pivot: {x: 0.5, y: 0.36842108}
+    pivot: {x: 0.5, y: 0.42105258}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -321,7 +321,7 @@ ScriptedImporter:
     uvTransform: {x: 44, y: 31}
   - name: Wizard_Frame_10
     originalName: 
-    pivot: {x: 0.5, y: 0.36842108}
+    pivot: {x: 0.5, y: 0.42105258}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -341,7 +341,7 @@ ScriptedImporter:
     uvTransform: {x: 64, y: 31}
   - name: Wizard_Frame_11
     originalName: 
-    pivot: {x: 0.53846157, y: 0.38888893}
+    pivot: {x: 0.53846157, y: 0.44444442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -361,7 +361,7 @@ ScriptedImporter:
     uvTransform: {x: 34, y: 4}
   - name: Wizard_Frame_12
     originalName: 
-    pivot: {x: 0.5, y: 0.36842108}
+    pivot: {x: 0.5, y: 0.42105258}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -381,7 +381,7 @@ ScriptedImporter:
     uvTransform: {x: 84, y: 31}
   - name: Wizard_Frame_13
     originalName: 
-    pivot: {x: 0.5, y: 0.36842108}
+    pivot: {x: 0.5, y: 0.42105258}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -401,7 +401,7 @@ ScriptedImporter:
     uvTransform: {x: 104, y: 31}
   - name: Wizard_Frame_14
     originalName: 
-    pivot: {x: 0.5, y: 0.36842108}
+    pivot: {x: 0.5, y: 0.42105258}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -421,7 +421,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 58}
   - name: Wizard_Frame_15
     originalName: 
-    pivot: {x: 0.46153846, y: 0.38888893}
+    pivot: {x: 0.46153846, y: 0.44444442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -441,7 +441,7 @@ ScriptedImporter:
     uvTransform: {x: 55, y: 4}
   - name: Wizard_Frame_16
     originalName: 
-    pivot: {x: 0.5, y: 0.36842108}
+    pivot: {x: 0.5, y: 0.42105258}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -472,7 +472,7 @@ ScriptedImporter:
       frameIndex: 0
       cellRect:
         x: 14
-        y: 17
+        y: 16
         width: 22
         height: 19
       spriteId: aa9d7e5b9775f3b4091fcec920eb0994
@@ -480,7 +480,7 @@ ScriptedImporter:
       frameIndex: 1
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 12
         height: 19
       spriteId: 8399993cae066a343b72f6097fab9bb1
@@ -488,7 +488,7 @@ ScriptedImporter:
       frameIndex: 2
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 12
         height: 19
       spriteId: de2f7c3c1c17a184cbf790d1838aa96a
@@ -496,7 +496,7 @@ ScriptedImporter:
       frameIndex: 3
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 12
         height: 19
       spriteId: 5e7b2f520cc35be469a3c4d502abde70
@@ -504,7 +504,7 @@ ScriptedImporter:
       frameIndex: 4
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 12
         height: 19
       spriteId: 98c24f8300216a14995a52d74c8c9c38
@@ -512,7 +512,7 @@ ScriptedImporter:
       frameIndex: 5
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 12
         height: 18
       spriteId: c673e6662a749e4418a36952f7f6fc76
@@ -520,7 +520,7 @@ ScriptedImporter:
       frameIndex: 6
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 12
         height: 18
       spriteId: 02bf0fc9884d56943b227a4a2ddf4f6a
@@ -528,7 +528,7 @@ ScriptedImporter:
       frameIndex: 7
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 12
         height: 18
       spriteId: 9a0b6b4edd658a6429d45718a556a2fc
@@ -536,7 +536,7 @@ ScriptedImporter:
       frameIndex: 8
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 12
         height: 18
       spriteId: 014e81a2b35b4bb4eb6596f392fb1c74
@@ -544,7 +544,7 @@ ScriptedImporter:
       frameIndex: 9
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 12
         height: 19
       spriteId: 086067e54bdc2c347afa87787334fd12
@@ -552,7 +552,7 @@ ScriptedImporter:
       frameIndex: 10
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 12
         height: 19
       spriteId: f7e512584921f0f4cad0fcabd349503b
@@ -560,7 +560,7 @@ ScriptedImporter:
       frameIndex: 11
       cellRect:
         x: 17
-        y: 17
+        y: 16
         width: 13
         height: 18
       spriteId: b5e8002384d0e7e4f9533f73e3161fa3
@@ -568,7 +568,7 @@ ScriptedImporter:
       frameIndex: 12
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 12
         height: 19
       spriteId: 88ddfe9e2a182df418de646514b7f2a5
@@ -576,7 +576,7 @@ ScriptedImporter:
       frameIndex: 13
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 12
         height: 19
       spriteId: c1535114198d86348a519d3d799c37eb
@@ -584,7 +584,7 @@ ScriptedImporter:
       frameIndex: 14
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 12
         height: 19
       spriteId: 9ce64a5b938f6ac44911de2d7091bfef
@@ -592,7 +592,7 @@ ScriptedImporter:
       frameIndex: 15
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 13
         height: 18
       spriteId: edd4b3210a9cb84419beca9413a89f6f
@@ -600,7 +600,7 @@ ScriptedImporter:
       frameIndex: 16
       cellRect:
         x: 18
-        y: 17
+        y: 16
         width: 12
         height: 19
       spriteId: 0be7634e45f784448aaefb319daed237
