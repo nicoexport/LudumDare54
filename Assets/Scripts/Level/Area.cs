@@ -14,6 +14,10 @@ namespace LudumDare {
             SetScale();
         }
 
+        protected void OnValidate() {
+            Awake();
+        }
+
         void SetScale() {
             transform.localScale = new Vector3(Width, Height);
         }
