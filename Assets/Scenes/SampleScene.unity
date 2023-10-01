@@ -168,8 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaPrefab: {fileID: 9062204890653565705, guid: d3ecb1878351e5245b507d6ce94f7ce8, type: 3}
-  gridWidth: 10
+  gridWidth: 11
   gridMaxHeight: 5
+  startSmall: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

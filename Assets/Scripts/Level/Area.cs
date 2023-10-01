@@ -3,13 +3,14 @@ using UnityEngine;
 namespace LudumDare {
     public class Area : MonoBehaviour {
         [SerializeField]
-        GameObject Ground, FrontBorder;
+        SpriteRenderer Ground, FrontBorder;
 
         [SerializeField]
         int Width, Height;
 
+        bool isWalkable = true; 
+
         protected void Awake() {
-            SetFrontBorder(false);
             SetScale();
         }
 
@@ -29,8 +30,13 @@ namespace LudumDare {
             return Height;
         }
 
-        public void SetFrontBorder(bool isVisible) {
-            FrontBorder.SetActive(isVisible);
+        public void SetIsWalkable(bool isWalkable) {
+            this.isWalkable = isWalkable;
+        }
+
+        public void SetOrderInLayer(int layer) {
+            Ground.sortingOrder = layer;
+            FrontBorder.sortingOrder = layer;
         }
     }
 }
