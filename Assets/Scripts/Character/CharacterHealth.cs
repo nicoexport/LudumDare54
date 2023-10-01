@@ -16,6 +16,11 @@ namespace LudumDare {
             currentHealth = maxHealth;
         }
 
+        public void GainHealth(int amount) {
+            currentHealth += amount;
+            onHealthChanged.Invoke(maxHealth, currentHealth);
+        }
+
         public void TakeDamage(int amount) {
             currentHealth -= amount;
             onHealthChanged.Invoke(maxHealth, currentHealth);

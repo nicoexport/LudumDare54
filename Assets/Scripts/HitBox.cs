@@ -5,7 +5,7 @@ namespace LudumDare.Assets.Scripts {
     class HitBox : MonoBehaviour {
         [SerializeField] int damage = 10;
         [SerializeField] LayerMask whatIsEnemy;
-        [SerializeField] UnityEvent onHit;
+        [SerializeField] UnityEvent<int> onHit;
 
         protected void OnTriggerEnter(Collider collider) {
             if (!whatIsEnemy.IsInLayerMask(collider.gameObject)) {
@@ -17,7 +17,7 @@ namespace LudumDare.Assets.Scripts {
             }
 
             health.TakeDamage(damage);
-            onHit.Invoke();
+            onHit.Invoke(damage);
         }
     }
 }
