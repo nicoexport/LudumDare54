@@ -9,8 +9,6 @@ namespace LudumDare {
         int Width, Height;
 
         protected void Awake() {
-            Ground = GameObject.Find("Ground");
-            FrontBorder = GameObject.Find("FrontBorder");
             SetFrontBorder(false);
             SetScale();
         }
