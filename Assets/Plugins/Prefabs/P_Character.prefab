@@ -134,6 +134,9 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 64
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1992545888862490526
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -231,8 +234,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 257270825
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1829632371, guid: 1f8d2ff1a0ce7dc42a82578d1afdb739, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

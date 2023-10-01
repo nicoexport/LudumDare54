@@ -24,10 +24,6 @@ namespace LudumDare.Assets.Scripts {
         public override void Shoot(Vector2 direction) {
             lifetimer.SetForFrames(lifeTimeInFrames);
             moveDir = direction.normalized;
-            var candidates = Physics.OverlapSphere(transform.position, detectionRange, targetLayers);
-            if (candidates.Length > 0) {
-                target = candidates[0].transform;
-            }
             isInitialized = true;
         }
 
@@ -39,6 +35,11 @@ namespace LudumDare.Assets.Scripts {
             lifetimer.Tick();
             if (!lifetimer.value) {
                 Destroy(gameObject);
+            }
+
+            var candidates = Physics.OverlapSphere(transform.position, detectionRange, targetLayers);
+            if (candidates.Length > 0) {
+                target = candidates[0].transform;
             }
 
             if (target) {

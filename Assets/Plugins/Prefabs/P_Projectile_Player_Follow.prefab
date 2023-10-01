@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7588367280325386570}
   - component: {fileID: 1962052183794529023}
   - component: {fileID: 6853348490137043185}
-  - component: {fileID: 6067391478584654579}
+  - component: {fileID: 3748733132898443768}
   m_Layer: 0
-  m_Name: P_Projectile_Enemy
+  m_Name: P_Projectile_Player_Follow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,11 +50,11 @@ MonoBehaviour:
   damage: 10
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64
   onHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6067391478584654579}
+      - m_Target: {fileID: 3748733132898443768}
         m_TargetAssemblyTypeName: LudumDare.Assets.Scripts.FollowProjectile, Assembly-CSharp
         m_MethodName: Destroy
         m_Mode: 1
@@ -89,7 +89,7 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6067391478584654579
+--- !u!114 &3748733132898443768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,13 +101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2bef15d2b200eb40b5303fd94e88d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  driftSpeed: 1
-  lifeTimeInFrames: 50
+  moveSpeed: 8
+  driftSpeed: 0.2
+  lifeTimeInFrames: 100
   targetLayers:
     serializedVersion: 2
-    m_Bits: 8
-  detectionRange: 10
+    m_Bits: 64
+  detectionRange: 3
 --- !u!1 &8236805288511559029
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.4669811, b: 0.4669811, a: 1}
+  m_Color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
