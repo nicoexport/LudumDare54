@@ -237,7 +237,7 @@ SpriteRenderer:
   m_SortingLayerID: 257270825
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1829632371, guid: 1f8d2ff1a0ce7dc42a82578d1afdb739, type: 3}
+  m_Sprite: {fileID: -49588451641790991, guid: e460131868802134b92b9e4d63a5e10f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -288,13 +288,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 0.68
-  m_Radius: 0.5
+  m_Height: 0.25
+  m_Radius: 0.25
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.25, z: 0}
 --- !u!114 &970813618870632490
 MonoBehaviour:
   m_ObjectHideFlags: 0

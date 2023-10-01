@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Slothsoft.UnityExtensions;
@@ -11,29 +10,39 @@ namespace LudumDare {
         Area areaPrefab;
 
         [SerializeField]
-        int gridWidth = 10;
+        int m_gridWidth = 10;
 
         [SerializeField]
-        int gridMaxHeight = 5;
+        int m_gridMaxHeight = 5;
+
+        int gridWidth => m_gridWidth + 2;
+        int gridMaxHeight => m_gridMaxHeight + 2;
+
 
         [SerializeField]
-        bool startSmall = true;
+        bool startBig = true;
 
-        Dictionary<Vector2, Area> positionAreaPairs = new Dictionary<Vector2, Area>();
+        Dictionary<Vector2, Area> positionAreaPairs = new();
 
-
-
-        private void OnEnable() {
+        protected void OnEnable() {
             // subscribe on player health treshhold event
         }
 
-        private void OnDisable() {
+        protected void OnDisable() {
             // unsubscribe on player health treshhold event
         }
 
+        [ContextMenu("Generate")]
         protected void Start() {
-            positionAreaPairs.Clear();
+            ClearGrid();
             GenerateMap();
+            SetGridPos();
+        }
+
+        void SetGridPos() {
+            float x = (float)((gridWidth - 1) * areaPrefab.GetWidth()) / 2f;
+            float y = (gridMaxHeight - 2) * areaPrefab.GetHeight() / 2f;
+            transform.position -= new Vector3(x, y);
         }
 
         void GenerateMap() {
@@ -46,12 +55,12 @@ namespace LudumDare {
                 }
 
                 // generates pattern small-big-small
-                if (startSmall && gridMaxHeight > 1) {
+                if (startBig && gridMaxHeight > 1) {
                     height = (x % 2) == 0 ? gridMaxHeight - 1 : gridMaxHeight;
                 }
 
                 // generates pattern big-small-big
-                if (!startSmall && gridMaxHeight > 1) {
+                if (!startBig && gridMaxHeight > 1) {
                     height = (x % 2) == 1 ? gridMaxHeight - 1 : gridMaxHeight;
                 }
 
@@ -63,7 +72,7 @@ namespace LudumDare {
 
                     if (gridMaxHeight == 1) {
                         yPos = y * areaPrefab.GetHeight();
-                    } else if (startSmall && gridMaxHeight > 1) {
+                    } else if (startBig && gridMaxHeight > 1) {
                         yPos = (x % 2) == 1 ? (y * areaPrefab.GetHeight()) - CalcOffset() : y * areaPrefab.GetHeight();
                     } else {
                         yPos = (x % 2) == 1 ? (y * areaPrefab.GetHeight()) + CalcOffset() : y * areaPrefab.GetHeight();
@@ -71,8 +80,10 @@ namespace LudumDare {
 
 
                     var spawnedArea = Instantiate(areaPrefab, new Vector2(xPos, yPos), Quaternion.identity, transform);
-                    spawnedArea.SetOrderInLayer(-(int)Math.Floor(yPos));
-                    positionAreaPairs[new Vector2(xPos, yPos)] = spawnedArea;
+
+                    if(x == 0 || x == gridWidth - 1 || y == 0 ||  y == height -1) {
+                        spawnedArea.SetIsWalkable(false);
+                    }
                 }
             }
         }
@@ -81,12 +92,20 @@ namespace LudumDare {
             return (float)areaPrefab.GetHeight() / 2;
         }
 
-        private void DisableWalkableArea() {
+        void DisableWalkableArea() {
             // grab random area
             var rand = new System.Random();
             var element = positionAreaPairs.ElementAt(rand.Next(0, positionAreaPairs.Count)).Value;
             // make it unwalkable
             element.SetIsWalkable(false);
+        }
+
+        void ClearGrid() {
+            positionAreaPairs.Clear();
+
+            foreach (var child in transform.GetChildren()) {
+                DestroyImmediate(child.gameObject);
+            }
         }
     }
 }

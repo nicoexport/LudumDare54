@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LudumDare {
     public class Area : MonoBehaviour {
         [SerializeField]
-        SpriteRenderer Ground, FrontBorder;
+        SpriteRenderer platform;
 
         [SerializeField]
         int Width, Height;
@@ -22,8 +23,15 @@ namespace LudumDare {
             transform.localScale = new Vector3(Width, Height);
         }
 
-        protected void OnTriggerEnter2D(Collider2D other) {
+        protected void OnTriggerEnter(Collider other) {
+            if (isWalkable) {
+                return;
+            }
 
+            if (other.CompareTag("Player")) {
+                // Implement falling
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
 
         public int GetWidth() {
@@ -36,11 +44,17 @@ namespace LudumDare {
 
         public void SetIsWalkable(bool isWalkable) {
             this.isWalkable = isWalkable;
+            platform.gameObject.SetActive(isWalkable);
         }
 
-        public void SetOrderInLayer(int layer) {
-            Ground.sortingOrder = layer;
-            FrontBorder.sortingOrder = layer;
+        [ContextMenu("Set Walkable")]
+        public void SetWalkable() {
+            SetIsWalkable(true);
+        }
+
+        [ContextMenu("Set !Walkable")]
+        public void SetNonWalkable() {
+            SetIsWalkable(false);
         }
     }
 }
