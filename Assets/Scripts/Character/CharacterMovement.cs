@@ -20,6 +20,7 @@ namespace LudumDare {
                 }
             }
         }
+
         [field: SerializeField, ReadOnly]
         Vector2 m_velocity;
         [property: SerializeField]
@@ -43,6 +44,10 @@ namespace LudumDare {
 
         protected void OnMove(InputValue value) {
             velocity = value.Get<Vector2>() * moveVelocity;
+        }
+
+        protected void OnMove(Vector2 value) {
+            velocity = value * moveVelocity;
         }
 
         protected override void OnValidate() {
