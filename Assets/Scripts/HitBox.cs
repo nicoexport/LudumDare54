@@ -5,7 +5,7 @@ namespace LudumDare.Assets.Scripts {
         [SerializeField] int damage = 10;
         [SerializeField] LayerMask whatIsEnemy;
 
-        protected void OnTriggerEnter2D(Collider2D collider) {
+        protected void OnTriggerEnter(Collider collider) {
             if (!whatIsEnemy.IsInLayerMask(collider.gameObject)) {
                 return;
             }
