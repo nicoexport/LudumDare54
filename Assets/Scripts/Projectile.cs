@@ -2,14 +2,14 @@
 using UnityEngine;
 
 namespace LudumDare.Assets.Scripts {
-    public class Projectile : MonoBehaviour {
+    public class Projectile : BaseProjectile {
         [SerializeField] int lifeTimeInFrames;
         [SerializeField] float moveSpeed = 2f;
         BoolBuffer lifetimer = new();
         bool isInitialized;
         Vector2 moveDir;
 
-        public void Shoot(Vector2 direction) {
+        public override void Shoot(Vector2 direction) {
             lifetimer.SetForFrames(lifeTimeInFrames);
             moveDir = direction.normalized;
             isInitialized = true;

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace LudumDare {
     public class CharacterRangedAttack : ComponentFeature<Animator> {
         [SerializeField]
-        Projectile projectilePrefab;
+        BaseProjectile projectilePrefab;
         [SerializeField] float spawnDistance = 0.5f;
 
         BoolBuffer intendBuffer = new();
