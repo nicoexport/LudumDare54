@@ -134,8 +134,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedComponent: {fileID: 4671463775869499642}
-  projectilePrefab: {fileID: 1232453642606153877, guid: d6b6c77916087a54ba89fd5dc8be6c85, type: 3}
+  projectilePrefab: {fileID: 3748733132898443768, guid: 52f9377379a199d4e977b1cf9a6abfc8, type: 3}
   spawnDistance: 0.5
+  cooldownInFrames: 0
 --- !u!95 &4671463775869499642 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1113697969010235921, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
