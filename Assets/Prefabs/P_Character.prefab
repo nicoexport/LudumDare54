@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 970813618870632490}
   - component: {fileID: 4568668033138714898}
   - component: {fileID: 1647573395083148382}
+  - component: {fileID: -6199904570378844168}
   m_Layer: 3
   m_Name: P_Character
   m_TagString: Untagged
@@ -355,3 +356,17 @@ MonoBehaviour:
   attachedComponent: {fileID: 1113697969010235921}
   attackColliderTransform: {fileID: 3783137522627548957}
   attackColliderDistance: 0.5
+--- !u!114 &-6199904570378844168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8129300416532852628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df54d06fc2f8bc4ea5425b3291e3e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachedComponent: {fileID: 5783032149454773291}
+  applyDuringRuntime: 1
