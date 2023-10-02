@@ -14,10 +14,14 @@ namespace LudumDare {
 
         protected void Start() {
             currentHealth = maxHealth;
+            onHealthChanged?.Invoke(maxHealth, currentHealth);
         }
 
         public void GainHealth(int amount) {
             currentHealth += amount;
+            if(currentHealth > maxHealth) {
+                currentHealth = maxHealth;
+            }
             onHealthChanged.Invoke(maxHealth, currentHealth);
         }
 

@@ -9,8 +9,40 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: -4993767119707559068}
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4571692670908599679}
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Die
+      objectReference: {fileID: 0}
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -29,8 +61,24 @@ PrefabInstance:
       value: UpdateHealth
       objectReference: {fileID: 0}
     - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LudumDare.Assets.Scripts.Player, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: LudumDare.Assets.Scripts.Player, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -189,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff0e903abf1ac104e876083c47288acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attachedComponent: {fileID: 7407005718242138162}
 --- !u!114 &5748724707373554706
 MonoBehaviour:
   m_ObjectHideFlags: 0
