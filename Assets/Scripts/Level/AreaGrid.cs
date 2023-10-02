@@ -33,7 +33,6 @@ namespace LudumDare {
 
         protected void OnEnable() {
             Player.onHealthChanged += OnPlayerHealthChanged;
-
         }
 
         protected void OnDisable() {
@@ -150,9 +149,8 @@ namespace LudumDare {
 
         void DisableRandomWalkableArea() {
             // grab random area
-            var rand = new System.Random();
             var matching = positionAreaPairs.Where(x => x.Value.GetIsWalkable()).ToDictionary(x => x.Key, x => x.Value);
-            var element = positionAreaPairs.ElementAt(rand.Next(0, matching.Count)).Value;
+            var element = positionAreaPairs.ElementAt(random.Next(0, matching.Count)).Value;
             // make it unwalkable
             element.SetIsWalkable(false);
         }
