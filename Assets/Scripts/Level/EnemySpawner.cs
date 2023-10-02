@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using MyBox;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,10 +13,11 @@ namespace LudumDare.Assets.Scripts.Level {
         [SerializeField] MinMaxInt spawnDelayInFrames;
         [Separator]
         [SerializeField] Vector3[] spawnPositions;
+        [SerializeField] GameObject spawnEffectPrefab;
 
         int spawnedEnemies;
         BoolBuffer timer = new();
-        bool isSpawning;
+        bool tickTimers;
         int killedEnemies;
 
         protected void Start() {
@@ -23,39 +25,44 @@ namespace LudumDare.Assets.Scripts.Level {
         }
 
         void StartSpawning() {
-            isSpawning = true;
+            tickTimers = true;
             timer.SetForFrames(spawnDelayInFrames.Min);
         }
 
         protected void FixedUpdate() {
-            if (!isSpawning) {
+            if (!tickTimers) {
                 return;
             }
             timer.Tick();
             if (!timer.value && spawnedEnemies < totalNumberOfEnemies) {
-                Spawn();
+                StartCoroutine(Spawn());
             }
         }
 
-        void Spawn() {
+        IEnumerator Spawn() {
+            tickTimers = false;
             int enemyIndex = Random.Range(0, enemyPrefabs.Length);
             var spawnPos = transform.position;
             if (spawnPositions.Length > 0) {
                 int positionIndex = Random.Range(0, spawnPositions.Length);
                 spawnPos = spawnPositions[positionIndex];
             }
+            var spawnEffect = Instantiate(spawnEffectPrefab, spawnPos, Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
 
+            Debug.Log("Spawn enemy");
             var enemy = Instantiate(enemyPrefabs[enemyIndex], spawnPos, Quaternion.identity);
             spawnedEnemies++;
-            timer.SetForFrames(spawnDelayInFrames.RandomInRangeInclusive());
-            if(enemy.TryGetComponent(out CharacterHealth health)){
+            if (enemy.TryGetComponent(out CharacterHealth health)) {
                 health.onDeath.AddListener(CountKilledEnemies);
             }
+            timer.SetForFrames(spawnDelayInFrames.RandomInRangeInclusive());
+            tickTimers = true;
         }
 
         void CountKilledEnemies() {
             killedEnemies++;
-            if(killedEnemies == totalNumberOfEnemies) {
+            if (killedEnemies == totalNumberOfEnemies) {
                 onAllEnemiesKilled?.Invoke();
             }
         }

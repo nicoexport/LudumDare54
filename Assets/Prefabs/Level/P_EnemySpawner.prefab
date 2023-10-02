@@ -56,3 +56,4 @@ MonoBehaviour:
   - {x: -7.51, y: 1.53, z: 0}
   - {x: 0, y: 5.62, z: 0}
   - {x: 0, y: -2.43, z: 0}
+  spawnEffectPrefab: {fileID: 4241954636824595769, guid: 4b542367022d866448d7d4f72b7dc71d, type: 3}
