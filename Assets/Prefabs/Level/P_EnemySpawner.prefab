@@ -49,5 +49,10 @@ MonoBehaviour:
   - {fileID: 8628959264610099571, guid: cd1186d58b375834e84bed01e48aafc1, type: 3}
   totalNumberOfEnemies: 10
   spawnDelayInFrames:
-    Min: 500
-    Max: 1000
+    Min: 200
+    Max: 400
+  spawnPositions:
+  - {x: 7.51, y: 1.53, z: 0}
+  - {x: -7.51, y: 1.53, z: 0}
+  - {x: 0, y: 5.62, z: 0}
+  - {x: 0, y: -2.43, z: 0}

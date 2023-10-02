@@ -9,6 +9,42 @@ namespace LudumDare.Assets.Scripts.Level {
         [Separator]
         [SerializeField] Vector3[] spawnPositions;
 
+        int spawnedEnemies;
+        BoolBuffer timer = new();
+        bool isSpawning;
+
+        protected void Start() {
+            StartSpawning();
+        }
+
+        void StartSpawning() {
+            isSpawning = true;
+            Spawn();
+        }
+
+        protected void FixedUpdate() {
+            if (!isSpawning) {
+                return;
+            }
+            timer.Tick();
+            if (!timer.value && spawnedEnemies < totalNumberOfEnemies) {
+                Spawn();
+            }
+        }
+
+        void Spawn() {
+            int enemyIndex = Random.Range(0, enemyPrefabs.Length - 1);
+            var spawnPos = transform.position;
+            if (spawnPositions.Length > 0) {
+                int positionIndex = Random.Range(0, spawnPositions.Length - 1);
+                spawnPos = spawnPositions[positionIndex];
+            }
+
+            var enemy = Instantiate(enemyPrefabs[0], spawnPos, Quaternion.identity);
+            spawnedEnemies++;
+            timer.SetForFrames(spawnDelayInFrames.RandomInRangeInclusive());
+        }
+
         protected void OnDrawGizmos() {
             Gizmos.color = Color.red;
 
