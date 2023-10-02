@@ -36,6 +36,8 @@ namespace LudumDare.Assets.Scripts {
             anim.SetBool("isFalling", true);
             var renderer = GetComponent<Renderer>();
             renderer.sortingLayerName = "Ground";
+            var controller = GetComponent<CharacterController>();
+            controller.enabled = false;
         }
 
         public void DisableInput() {

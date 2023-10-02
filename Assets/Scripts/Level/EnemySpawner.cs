@@ -20,6 +20,14 @@ namespace LudumDare.Assets.Scripts.Level {
         bool tickTimers;
         int killedEnemies;
 
+        protected void OnEnable() {
+            Player.onDeath += StopSpawning;
+        }
+
+        protected void OnDisable() {
+            Player.onDeath -= StopSpawning;
+        }
+
         protected void Start() {
             StartSpawning();
         }
@@ -65,6 +73,10 @@ namespace LudumDare.Assets.Scripts.Level {
             if (killedEnemies == totalNumberOfEnemies) {
                 onAllEnemiesKilled?.Invoke();
             }
+        }
+
+        void StopSpawning() {
+            tickTimers = false;
         }
 
         protected void OnDrawGizmos() {

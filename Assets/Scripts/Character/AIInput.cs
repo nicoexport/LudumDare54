@@ -11,12 +11,23 @@ namespace LudumDare {
         bool useRange;
         GameObject playerObject;
 
+        bool disabled;
+
+        protected void OnEnable() {
+            Player.onDeath += Disable;    
+        }
+
+        protected void OnDisable() {
+            Player.onDeath -= Disable;
+        }
+
         protected void Start() {
             playerObject = Player.instance.gameObject;
         }
 
         protected void FixedUpdate() {
-            if (!playerObject || !playerObject.activeInHierarchy) {
+            if (!playerObject || !playerObject.activeInHierarchy || disabled) {
+                gameObject.SendMessage("OnMove", Vector2.zero);
                 return;
             }
 
@@ -41,6 +52,10 @@ namespace LudumDare {
         void Chase() {
             Vector2 dir = playerObject.transform.position - transform.position;
             gameObject.SendMessage("OnMove", dir.normalized);
+        }
+
+        void Disable() {
+            disabled = true;
         }
     }
 }
