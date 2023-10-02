@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: invincabilityFrames
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
