@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using LudumDare.Assets.Scripts.Level;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,10 +16,15 @@ namespace LudumDare.Assets.Scripts.UI {
         Button quitButton;
 
         protected void OnEnable() {
+            EnemySpawner.onAllEnemiesKilled += EnableScreen;
             continueButton.onClick.AddListener(Continue);
             mainMenuButton.onClick.AddListener(MainMenu);
             quitButton.onClick.AddListener(Quit);
             DisableScreen();
+        }
+
+        protected void OnDisable() {
+            EnemySpawner.onAllEnemiesKilled -= EnableScreen;
         }
 
         void EnableScreen() {

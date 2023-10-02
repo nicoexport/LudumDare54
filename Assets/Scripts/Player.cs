@@ -1,15 +1,12 @@
 ﻿using System;
-using UnityEngine;
+using LudumDare.Assets.Scripts.Level;
+using UnityEngine.InputSystem;
 
 namespace LudumDare.Assets.Scripts {
-    public class Player : MonoBehaviour {
+    public class Player : ComponentFeature<PlayerInput> {
         public static event Action<int, int> onHealthChanged;
 
         public static Player instance { get; private set; }
-
-        public void UpdateHealth(int maxHealth, int currentHealth) {
-            onHealthChanged?.Invoke(maxHealth, currentHealth);
-        }
 
         protected void Awake() {
             if (instance != null && instance != this) {
@@ -17,6 +14,22 @@ namespace LudumDare.Assets.Scripts {
             } else {
                 instance = this;
             }
+        }
+
+        protected void OnEnable() {
+            EnemySpawner.onAllEnemiesKilled += DisableInput;
+        }
+
+        protected void OnDisable() {
+            EnemySpawner.onAllEnemiesKilled -= DisableInput;
+        }
+
+        public void UpdateHealth(int maxHealth, int currentHealth) {
+            onHealthChanged?.Invoke(maxHealth, currentHealth);
+        }
+
+        public void DisableInput() {
+            attachedComponent.enabled = false;
         }
     }
 }

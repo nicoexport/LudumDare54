@@ -8,10 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1113697969010235921, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 69a6ef6423e8ee34fad678b65a2105c5, type: 2}
+    - target: {fileID: 3015849277097462230, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: m_Height
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015849277097462230, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015849277097462230, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3622326850131295294, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: m_Layer
       value: 6
