@@ -43,6 +43,10 @@ namespace LudumDare {
             return Height;
         }
 
+        public bool GetIsWalkable() {
+            return isWalkable;
+        }
+
         public void SetIsWalkable(bool isWalkable) {
             this.isWalkable = isWalkable;
             platform.gameObject.SetActive(isWalkable);
