@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using LudumDare.Assets.Scripts;
 using Slothsoft.UnityExtensions;
 using UnityEngine;
 
@@ -23,13 +24,20 @@ namespace LudumDare {
         bool startBig = true;
 
         Dictionary<Vector2, Area> positionAreaPairs = new();
+        Dictionary<Vector2, Area> positionDeathAreaPairs = new();
+
+        List<int> healthSegments = new();
+        int lastCurrentHealth;
+        System.Random random = new System.Random();
+        bool isHealthSegmentGenerated = false;
 
         protected void OnEnable() {
-            // subscribe on player health treshhold event
+            Player.onHealthChanged += OnPlayerHealthChanged;
+
         }
 
         protected void OnDisable() {
-            // unsubscribe on player health treshhold event
+            Player.onHealthChanged -= OnPlayerHealthChanged;
         }
 
         [ContextMenu("Generate")]
@@ -37,6 +45,7 @@ namespace LudumDare {
             ClearGrid();
             GenerateMap();
             SetGridPos();
+            GenerateHealthSegments(lastCurrentHealth);
         }
 
         void SetGridPos() {
@@ -81,8 +90,11 @@ namespace LudumDare {
 
                     var spawnedArea = Instantiate(areaPrefab, new Vector2(xPos, yPos), Quaternion.identity, transform);
 
-                    if(x == 0 || x == gridWidth - 1 || y == 0 ||  y == height -1) {
+                    if (x == 0 || x == gridWidth - 1 || y == 0 || y == height - 1) {
                         spawnedArea.SetIsWalkable(false);
+                        positionDeathAreaPairs.Add(spawnedArea.transform.position, spawnedArea);
+                    } else {
+                        positionAreaPairs.Add(spawnedArea.transform.position, spawnedArea);
                     }
                 }
             }
@@ -92,12 +104,95 @@ namespace LudumDare {
             return (float)areaPrefab.GetHeight() / 2;
         }
 
-        void DisableWalkableArea() {
+        void OnPlayerHealthChanged(int maxHealth, int currentHealth) {
+
+            if (!isHealthSegmentGenerated) {
+                lastCurrentHealth = maxHealth;
+                return;
+            }
+
+            int lastCurrentHealthUpperSegmentThreshold = GetCurrentUpperSegmentThreshold(lastCurrentHealth);
+            int currentHealthLowerSegmentThreshold = GetLowerSegmentThreshold(currentHealth);
+            int platformAmount = Mathf.Abs((lastCurrentHealthUpperSegmentThreshold - currentHealthLowerSegmentThreshold) / (maxHealth / positionAreaPairs.Count));
+
+            if (currentHealth > lastCurrentHealth) {
+                int counter = 0;
+                while (counter < platformAmount) {
+                    EnableRandomWalkableArea();
+                    counter++;
+                }
+            }
+
+            if (currentHealth < lastCurrentHealth) {
+                int counter = 0;
+                while (counter < platformAmount) {
+                    DisableRandomWalkableArea();
+                    counter++;
+                }
+            }
+            lastCurrentHealth = currentHealth;
+        }
+
+        void GenerateHealthSegments(int maxHealth) {
+            // calc threshhold
+            int treshhold = maxHealth / positionAreaPairs.Count;
+
+            // calc threshhold points
+            int healthSegment = maxHealth;
+            healthSegments.Add(healthSegment);
+            while (healthSegment > 0) {
+                healthSegments.Add(healthSegment -= treshhold);
+            }
+
+            isHealthSegmentGenerated = true;
+            lastCurrentHealth = maxHealth;
+        }
+
+        void DisableRandomWalkableArea() {
             // grab random area
             var rand = new System.Random();
-            var element = positionAreaPairs.ElementAt(rand.Next(0, positionAreaPairs.Count)).Value;
+            var matching = positionAreaPairs.Where(x => x.Value.GetIsWalkable()).ToDictionary(x => x.Key, x => x.Value);
+            var element = positionAreaPairs.ElementAt(rand.Next(0, matching.Count)).Value;
             // make it unwalkable
             element.SetIsWalkable(false);
+        }
+
+        void EnableRandomWalkableArea() {
+            // grab random area
+            var matching = positionAreaPairs.Where(x => !x.Value.GetIsWalkable()).ToDictionary(x => x.Key, x => x.Value);
+            var element = matching.ElementAt(random.Next(0, matching.Count)).Value;
+
+            // make it walkable
+            element.SetIsWalkable(true);
+        }
+
+        int GetCurrentUpperSegmentThreshold(int health) {
+
+            if (health >= healthSegments[0]) {
+                return healthSegments[0];
+            }
+
+            foreach (int segment in healthSegments) {
+                if (health > segment) {
+
+                    return healthSegments[healthSegments.IndexOf(segment) - 1];
+                }
+            }
+            return -1;
+        }
+
+        int GetLowerSegmentThreshold(int health) {
+
+            if (health <= healthSegments[^1]) {
+                return healthSegments[^1];
+            }
+
+            foreach (int segment in healthSegments) {
+                if (health > segment) {
+                    return segment;
+                }
+            }
+            return -1;
         }
 
         void ClearGrid() {
