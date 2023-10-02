@@ -31,6 +31,7 @@ namespace LudumDare.Assets.Scripts {
 
         public void Die() {
             onDeath?.Invoke();
+            gameObject.SetActive(false);
         }
 
         public void DisableInput() {

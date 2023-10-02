@@ -1,3 +1,4 @@
+using LudumDare.Assets.Scripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,7 +31,7 @@ namespace LudumDare {
 
             if (other.CompareTag("Player")) {
                 // Implement falling
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                Player.instance.Die();
             }
         }
 
