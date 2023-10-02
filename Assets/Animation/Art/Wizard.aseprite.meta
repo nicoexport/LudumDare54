@@ -1099,6 +1099,126 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 132, y: 82}
+  - name: Wizard_Frame_49
+    originalName: 
+    pivot: {x: 0.5, y: 0.6470588}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 108
+      width: 12
+      height: 17
+    spriteID: b803a6e4004970a44900e1e2bc401987
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 132, y: 108}
+  - name: Wizard_Frame_50
+    originalName: 
+    pivot: {x: 0.5, y: 1.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 133
+      width: 12
+      height: 12
+    spriteID: 85e0da809a99ca14ebe8bc84c5c370bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 132, y: 133}
+  - name: Wizard_Frame_51
+    originalName: 
+    pivot: {x: 0.39999992, y: 2.4285717}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 245
+      width: 5
+      height: 7
+    spriteID: 83e388c93f6f0f14f90ba62b0a26176a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 245}
+  - name: Wizard_Frame_52
+    originalName: 
+    pivot: {x: 0.50000024, y: 7.0000005}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 92
+      y: 247
+      width: 2
+      height: 2
+    spriteID: 14cba7c2097c39041905d60fc9386be7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 92, y: 247}
+  - name: Wizard_Frame_53
+    originalName: 
+    pivot: {x: 0.6, y: 2.4285717}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 173
+      width: 5
+      height: 7
+    spriteID: 48bee9c8ed089234581f29e691705667
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 132, y: 173}
+  - name: Wizard_Frame_54
+    originalName: 
+    pivot: {x: 0.45454544, y: 1.5833334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 153
+      width: 11
+      height: 12
+    spriteID: b1220e8639d86a44e8389d5271d55c0d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 132, y: 153}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -1500,6 +1620,54 @@ ScriptedImporter:
         width: 12
         height: 18
       spriteId: b17c0863d40728046b75dba43a6c6b18
+    - name: Wizard_Frame_49
+      frameIndex: 49
+      cellRect:
+        x: 18
+        y: 13
+        width: 12
+        height: 17
+      spriteId: b803a6e4004970a44900e1e2bc401987
+    - name: Wizard_Frame_50
+      frameIndex: 50
+      cellRect:
+        x: 18
+        y: 9
+        width: 12
+        height: 12
+      spriteId: 85e0da809a99ca14ebe8bc84c5c370bb
+    - name: Wizard_Frame_51
+      frameIndex: 51
+      cellRect:
+        x: 22
+        y: 7
+        width: 5
+        height: 7
+      spriteId: 83e388c93f6f0f14f90ba62b0a26176a
+    - name: Wizard_Frame_52
+      frameIndex: 52
+      cellRect:
+        x: 23
+        y: 10
+        width: 2
+        height: 2
+      spriteId: 14cba7c2097c39041905d60fc9386be7
+    - name: Wizard_Frame_53
+      frameIndex: 53
+      cellRect:
+        x: 21
+        y: 7
+        width: 5
+        height: 7
+      spriteId: 48bee9c8ed089234581f29e691705667
+    - name: Wizard_Frame_54
+      frameIndex: 54
+      cellRect:
+        x: 19
+        y: 5
+        width: 11
+        height: 12
+      spriteId: b1220e8639d86a44e8389d5271d55c0d
     linkedCells: []
     parentIndex: -1
   platformSettings:

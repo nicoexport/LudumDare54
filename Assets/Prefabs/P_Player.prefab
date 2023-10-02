@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: invincabilityFrames
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 970813618870632490, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -151,18 +155,18 @@ PrefabInstance:
     - target: {fileID: 7320565654303459144, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4817158615234699969}
+      objectReference: {fileID: 6522287092061824334}
     - target: {fileID: 7320565654303459144, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7320565654303459144, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GainHealth
+      value: Steal
       objectReference: {fileID: 0}
     - target: {fileID: 7320565654303459144, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LudumDare.CharacterHealth, Assembly-CSharp
+      value: LudumDare.Assets.Scripts.Character.LifeSteal, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7320565654303459144, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: onHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -189,7 +193,29 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8129300416532852628, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5748724707373554706}
+    - targetCorrespondingSourceObject: {fileID: 7125065082080621556, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6522287092061824334}
   m_SourcePrefab: {fileID: 100100000, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+--- !u!1 &3261073536119722271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7125065082080621556, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+  m_PrefabInstance: {fileID: 5737860714192937707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6522287092061824334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3261073536119722271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847252fc2abf6f7479e61de4d5f73812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 4817158615234699969}
+  percent: 0.5
 --- !u!1 &4571692670908599679 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8129300416532852628, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}

@@ -1,5 +1,6 @@
 ﻿using System;
 using LudumDare.Assets.Scripts.Level;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace LudumDare.Assets.Scripts {
@@ -31,7 +32,10 @@ namespace LudumDare.Assets.Scripts {
 
         public void Die() {
             onDeath?.Invoke();
-            gameObject.SetActive(false);
+            var anim = GetComponent<Animator>();
+            anim.SetBool("isFalling", true);
+            var renderer = GetComponent<Renderer>();
+            renderer.sortingLayerName = "Ground";
         }
 
         public void DisableInput() {

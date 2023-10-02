@@ -41,16 +41,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -49588451641790991, guid: e460131868802134b92b9e4d63a5e10f, type: 3}
     - target: {fileID: 5783032149454773291, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5783032149454773291, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: m_Color.b
-      value: 0.46226418
+      value: 0.18867922
       objectReference: {fileID: 0}
     - target: {fileID: 5783032149454773291, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: m_Color.g
-      value: 0.052055284
+      value: 0.18867922
       objectReference: {fileID: 0}
     - target: {fileID: 5783032149454773291, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.18867922
       objectReference: {fileID: 0}
     - target: {fileID: 6598841517875480330, guid: 90e011d3213a93744b508159a78ccf6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -138,6 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545a8befcb5c0e344b0f081dd1c33489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 1.4
+  attackRange: 1.2
   useMelee: 1
   useRange: 0
