@@ -5,7 +5,6 @@ using Slothsoft.UnityExtensions;
 using UnityEngine;
 
 namespace LudumDare {
-
     public class AreaGrid : MonoBehaviour {
         [SerializeField]
         Area areaPrefab;
@@ -32,19 +31,27 @@ namespace LudumDare {
         bool isHealthSegmentGenerated = false;
 
         protected void OnEnable() {
+            Debug.Log(nameof(OnEnable));
             Player.onHealthChanged += OnPlayerHealthChanged;
         }
 
         protected void OnDisable() {
             Player.onHealthChanged -= OnPlayerHealthChanged;
+            Debug.Log(nameof(OnDisable));   
         }
-
+    
         [ContextMenu("Generate")]
         protected void Start() {
+            Debug.Log("Start");
+            
+        }
+
+        protected void Awake() {
+            Debug.Log("Awake");
             ClearGrid();
             GenerateMap();
             SetGridPos();
-            GenerateHealthSegments(lastCurrentHealth);
+            GenerateHealthSegments(GameConfigManager.Instance.gameConfig.playerMaxHealth);
         }
 
         void SetGridPos() {
@@ -104,9 +111,10 @@ namespace LudumDare {
         }
 
         void OnPlayerHealthChanged(int maxHealth, int currentHealth) {
-
+            Debug.Log("OnPlayerHealthChanged");
             if (!isHealthSegmentGenerated) {
                 lastCurrentHealth = maxHealth;
+                Debug.Log("Segments not generated");
                 return;
             }
 
