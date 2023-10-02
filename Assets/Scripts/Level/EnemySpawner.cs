@@ -12,6 +12,7 @@ namespace LudumDare.Assets.Scripts.Level {
         int spawnedEnemies;
         BoolBuffer timer = new();
         bool isSpawning;
+        int killedEnemies;
 
         protected void Start() {
             StartSpawning();
@@ -43,6 +44,16 @@ namespace LudumDare.Assets.Scripts.Level {
             var enemy = Instantiate(enemyPrefabs[0], spawnPos, Quaternion.identity);
             spawnedEnemies++;
             timer.SetForFrames(spawnDelayInFrames.RandomInRangeInclusive());
+            if(enemy.TryGetComponent(out CharacterHealth health)){
+                health.onDeath.AddListener(CountKilledEnemies);
+            }
+        }
+
+        void CountKilledEnemies() {
+            killedEnemies++;
+            if(killedEnemies == totalNumberOfEnemies) {
+                Debug.Log("Level Complete");
+            }
         }
 
         protected void OnDrawGizmos() {

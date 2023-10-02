@@ -47,7 +47,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 8628959264610099571, guid: 37ee6a01590cb1e42927c6851289994b, type: 3}
   - {fileID: 8628959264610099571, guid: cd1186d58b375834e84bed01e48aafc1, type: 3}
-  totalNumberOfEnemies: 10
+  totalNumberOfEnemies: 3
   spawnDelayInFrames:
     Min: 200
     Max: 400
