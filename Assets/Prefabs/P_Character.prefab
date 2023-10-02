@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 4568668033138714898}
   - component: {fileID: 1647573395083148382}
   - component: {fileID: -6199904570378844168}
+  - component: {fileID: 852975039519422440}
   m_Layer: 3
   m_Name: P_Character
   m_TagString: Untagged
@@ -325,6 +326,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 852975039519422440}
+        m_TargetAssemblyTypeName: LudumDare.Assets.Scripts.Character.SpriteFlasher,
+          Assembly-CSharp
+        m_MethodName: Flash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4568668033138714898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,3 +390,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachedComponent: {fileID: 5783032149454773291}
   applyDuringRuntime: 1
+--- !u!114 &852975039519422440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8129300416532852628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d598a1f9b003443b5b370e277cd54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachedComponent: {fileID: 5783032149454773291}
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDurationInSeconds: 0.7
+  ease: 30
+  trigger: 0

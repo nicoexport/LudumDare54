@@ -11,6 +11,7 @@ namespace LudumDare {
 
         public UnityEvent onDeath;
         public UnityEvent<int, int> onHealthChanged;
+        public UnityEvent onDamageTaken;
 
         protected void Start() {
             currentHealth = maxHealth;
@@ -28,6 +29,7 @@ namespace LudumDare {
         public void TakeDamage(int amount) {
             currentHealth -= amount;
             onHealthChanged.Invoke(maxHealth, currentHealth);
+            onDamageTaken.Invoke();
             if (currentHealth <= 0) {
                 onDeath?.Invoke();
             }
