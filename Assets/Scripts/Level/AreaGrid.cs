@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using LudumDare.Assets.Scripts;
+using MyBox;
 using Slothsoft.UnityExtensions;
 using UnityEngine;
 
@@ -25,25 +26,19 @@ namespace LudumDare {
         Dictionary<Vector2, Area> positionAreaPairs = new();
         Dictionary<Vector2, Area> positionDeathAreaPairs = new();
 
-        List<int> healthSegments = new();
-        int lastCurrentHealth;
-        System.Random random = new System.Random();
+        System.Random random = new();
         bool isHealthSegmentGenerated = false;
 
+        [SerializeField, ReadOnly]
+        List<MinMaxFloat> segments = new();
+        int currentSegmentIndex = int.MaxValue;
+
         protected void OnEnable() {
-            Debug.Log(nameof(OnEnable));
             Player.onHealthChanged += OnPlayerHealthChanged;
         }
 
         protected void OnDisable() {
             Player.onHealthChanged -= OnPlayerHealthChanged;
-            Debug.Log(nameof(OnDisable));   
-        }
-    
-        [ContextMenu("Generate")]
-        protected void Start() {
-            Debug.Log("Start");
-            
         }
 
         protected void Awake() {
@@ -55,7 +50,7 @@ namespace LudumDare {
         }
 
         void SetGridPos() {
-            float x = (float)((gridWidth - 1) * areaPrefab.GetWidth()) / 2f;
+            float x = (gridWidth - 1) * areaPrefab.GetWidth() / 2f;
             float y = (gridMaxHeight - 2) * areaPrefab.GetHeight() / 2f;
             transform.position -= new Vector3(x, y);
         }
@@ -111,94 +106,81 @@ namespace LudumDare {
         }
 
         void OnPlayerHealthChanged(int maxHealth, int currentHealth) {
-            Debug.Log("OnPlayerHealthChanged");
             if (!isHealthSegmentGenerated) {
-                lastCurrentHealth = maxHealth;
-                Debug.Log("Segments not generated");
                 return;
             }
 
-            int lastCurrentHealthUpperSegmentThreshold = GetCurrentUpperSegmentThreshold(lastCurrentHealth);
-            int currentHealthLowerSegmentThreshold = GetLowerSegmentThreshold(currentHealth);
-            int platformAmount = Mathf.Abs((lastCurrentHealthUpperSegmentThreshold - currentHealthLowerSegmentThreshold) / (maxHealth / positionAreaPairs.Count));
+            int newIndex = GetCurrentSegmentIndex(currentHealth);
+            int amount = currentSegmentIndex - newIndex;
+            
 
-            if (currentHealth > lastCurrentHealth) {
-                int counter = 0;
-                while (counter < platformAmount) {
+            if (amount < 0) {
+                for (int i = 0; i < Mathf.Abs(amount); i++) {
                     EnableRandomWalkableArea();
-                    counter++;
                 }
             }
 
-            if (currentHealth < lastCurrentHealth) {
-                int counter = 0;
-                while (counter < platformAmount) {
+            if (amount > 0) {
+                for (int i = 0; i < Mathf.Abs(amount); i++) {
                     DisableRandomWalkableArea();
-                    counter++;
                 }
             }
-            lastCurrentHealth = currentHealth;
+
+            if(currentHealth <= 0) {
+                DisableRemaining();
+            }
+
+            currentSegmentIndex = newIndex;
+        }
+
+        void DisableRemaining() {
+            var values = positionAreaPairs.Values.ToList();
+            var matching = values.Where(x => x.GetIsWalkable()).ToList().ForAll(x => x.SetIsWalkable(false));       
         }
 
         void GenerateHealthSegments(int maxHealth) {
             // calc threshhold
-            int treshhold = maxHealth / positionAreaPairs.Count;
-
-            // calc threshhold points
-            int healthSegment = maxHealth;
-            healthSegments.Add(healthSegment);
-            while (healthSegment > 0) {
-                healthSegments.Add(healthSegment -= treshhold);
+            float treshhold = (float)maxHealth / positionAreaPairs.Count;
+            float currentBottom = 0;
+            for (int i = 0; i < positionAreaPairs.Count; i++, currentBottom += treshhold) {
+                float currentTop = currentBottom + treshhold;
+                var segment = new MinMaxFloat(currentBottom, currentTop);
+                segments.Add(segment);
             }
-
+            currentSegmentIndex = segments.Count - 1;
             isHealthSegmentGenerated = true;
-            lastCurrentHealth = maxHealth;
         }
 
         void DisableRandomWalkableArea() {
             // grab random area
-            var matching = positionAreaPairs.Where(x => x.Value.GetIsWalkable()).ToDictionary(x => x.Key, x => x.Value);
-            var element = positionAreaPairs.ElementAt(random.Next(0, matching.Count)).Value;
+            var values = positionAreaPairs.Values.ToList();
+            var matching = values.Where(x => x.GetIsWalkable() && !x.hasPlayer).ToList();
+            var element = matching[Random.Range(0, matching.Count)];
             // make it unwalkable
             element.SetIsWalkable(false);
         }
 
         void EnableRandomWalkableArea() {
             // grab random area
-            var matching = positionAreaPairs.Where(x => !x.Value.GetIsWalkable()).ToDictionary(x => x.Key, x => x.Value);
-            var element = matching.ElementAt(random.Next(0, matching.Count)).Value;
-
+            var values = positionAreaPairs.Values.ToList();
+            var matching = values.Where(x => !x.GetIsWalkable()).ToList();
+            var element = matching[Random.Range(0, matching.Count)];
             // make it walkable
             element.SetIsWalkable(true);
         }
 
-        int GetCurrentUpperSegmentThreshold(int health) {
-
-            if (health >= healthSegments[0]) {
-                return healthSegments[0];
+        int GetCurrentSegmentIndex(int value) {
+            if(value > GameConfigManager.Instance.gameConfig.playerMaxHealth) {
+                return segments.Count - 1;
             }
 
-            foreach (int segment in healthSegments) {
-                if (health > segment) {
-
-                    return healthSegments[healthSegments.IndexOf(segment) - 1];
-                }
-            }
-            return -1;
-        }
-
-        int GetLowerSegmentThreshold(int health) {
-
-            if (health <= healthSegments[^1]) {
-                return healthSegments[^1];
+            if(value < 0) {
+                return 0;   
             }
 
-            foreach (int segment in healthSegments) {
-                if (health > segment) {
-                    return segment;
-                }
-            }
-            return -1;
+            var item = segments.Where(x => x.Min <= value && value <= x.Max);
+
+            return segments.IndexOfItem(item.ToArray()[0]);
         }
 
         void ClearGrid() {

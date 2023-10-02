@@ -1,6 +1,5 @@
 using LudumDare.Assets.Scripts;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace LudumDare {
     public class Area : MonoBehaviour {
@@ -10,7 +9,9 @@ namespace LudumDare {
         [SerializeField]
         int Width, Height;
 
-        bool isWalkable = true; 
+        bool isWalkable = true;
+
+        public bool hasPlayer { get; private set; } = false;
 
         protected void Awake() {
             SetScale();
@@ -24,15 +25,22 @@ namespace LudumDare {
             transform.localScale = new Vector3(Width, Height);
         }
 
-        protected void OnTriggerEnter(Collider other) {
-            if (isWalkable) {
+        protected void OnTriggerStay(Collider other) {
+            if (!other.CompareTag("Player")) {
                 return;
             }
-
-            if (other.CompareTag("Player")) {
+            hasPlayer = true;
+            if (!isWalkable) {
                 // Implement falling
                 Player.instance.Die();
             }
+        }
+
+        protected void OnTriggerExit(Collider other) {
+            if (!other.CompareTag("Player")) {
+                return;
+            }
+            hasPlayer = false;
         }
 
         public int GetWidth() {

@@ -2081,6 +2081,7 @@ MonoBehaviour:
   m_gridWidth: 6
   m_gridMaxHeight: 5
   startBig: 0
+  segments: []
 --- !u!1 &389075731
 GameObject:
   m_ObjectHideFlags: 0
@@ -9293,6 +9294,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774182853432289278, guid: decc5812695f3b540a92d3349b369323, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022062285626679009, guid: decc5812695f3b540a92d3349b369323, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4579089520572214496, guid: decc5812695f3b540a92d3349b369323, type: 3}
